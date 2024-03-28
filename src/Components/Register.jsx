@@ -1,8 +1,11 @@
 
 import { useFormik } from "formik";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+
+  const navingate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -53,6 +56,8 @@ function Register() {
         console.log(response);
         if (response.status === 200) {
           alert('Registration successful');
+          navingate("/table")
+          
         } else {
           alert('Registration failed');
           console.log("Registration failed")
